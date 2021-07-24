@@ -48,6 +48,9 @@ var chartGroup = svg.append("g")
 
     // 5.- Axis 
 
+    var bottomAxis = d3.axisBottom(xLinearScale);
+    var leftAxis = d3.axisLeft(yLinearScale);
 
+   
 
 });
