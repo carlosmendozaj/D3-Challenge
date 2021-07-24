@@ -12,11 +12,12 @@ var margin = {
     bottom: 50, 
     left: 30
 };
+// SVG Area with margins
 
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
-// 2.- SVG wrapper 
+// SVG contaINER
 
 var svg = d3
   .select("#scatter")
@@ -24,13 +25,12 @@ var svg = d3
   .attr("width", svgWidth)
   .attr("height", svgHeight);
 
+  // Chartgroup
+
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-  // 3.- Import data 
-  // Data available on CVS: id,state,abbr,poverty,povertyMoe,age,ageMoe,income,incomeMoe,
-  // healthcare,healthcareLow,healthcareHigh,obesity,obesityLow,obesityHigh,
-  // smokes,smokesLow,smokesHigh,-0.385218228
+  // Import Data (CSV document)
 
   d3.csv("assets/data/data.csv").then(function(journalismData) {
     journalismData.forEach(function(data) {
