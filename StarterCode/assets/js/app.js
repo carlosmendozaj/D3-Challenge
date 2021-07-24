@@ -71,6 +71,18 @@ var chartGroup = svg.append("g")
     .attr("stroke", "white")
     .attr("opacity", ".5");
 
-   
+    // 8.- Append Axis titles  
+    chartGroup.append("text")
+      .attr("transform", `translate(${height / 2}, ${height + margin.top + 20})`)
+      .classed("dow-text text", true)
+      .text("In Poverty (%)");
+
+    chartGroup.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 12)
+      .attr("x", 0 - (height / 2))
+      .text("Lacks Healthcare (%)");
+
+
 
 });
