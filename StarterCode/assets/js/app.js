@@ -43,7 +43,7 @@ var chartGroup = svg.append("g")
   });
 
 
-    // 4.- Scales, both are linear 
+    // Get scales => sacleliner
     
     var xLinearScale = d3.scaleLinear()
     .domain([d3.min(journalismData, d => d.poverty),d3.max(journalismData, d => d.poverty)])
@@ -53,12 +53,13 @@ var chartGroup = svg.append("g")
     .domain([d3.min(journalismData, d => d.healthcare),d3.max(journalismData, d =>d.healthcare)])
     .range([height, 0]);
 
-    // 5.- Axis 
+    // Axis
 
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
 
-    // 6.- Axis into SVG area 
+    // Axis into SVG area 
+
     chartGroup.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(bottomAxis);
@@ -66,7 +67,7 @@ var chartGroup = svg.append("g")
     chartGroup.append("g")
     .call(leftAxis);
 
-    // 7.- Append circles and bind data 
+    // Append circles and bind data 
     var circlesGroup = chartGroup.selectAll("circle")
     .data(journalismData)
     .enter()
@@ -78,7 +79,7 @@ var chartGroup = svg.append("g")
     .attr("stroke", "white")
     .attr("opacity", ".5");
 
-    // 8.- Append Axis titles  
+    // Append Axis titles  
     chartGroup.append("text")
       .attr("transform", `translate(${height / 2}, ${height + margin.top + 20})`)
       .classed("dow-text text", true)
@@ -90,7 +91,7 @@ var chartGroup = svg.append("g")
       .attr("x", 0 - (height / 2))
       .text("Lacks Healthcare (%)");
 
-    // 9. Add text to circles. Found it on Stackoverflow. 
+    // Text Group
     var circleLabels = chartGroup.selectAll(null).data(journalismData).enter().append("text");
 
     circleLabels
