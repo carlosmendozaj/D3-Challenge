@@ -43,7 +43,7 @@ var chartGroup = svg.append("g")
   });
 
 
-    // Get scales => sacleliner
+    // Get scales => sacleLinear
     
     var xLinearScale = d3.scaleLinear()
     .domain([d3.min(journalismData, d => d.poverty),d3.max(journalismData, d => d.poverty)])
